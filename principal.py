@@ -49,7 +49,7 @@ def calculo_prom():
 
 def buscar_estudiante():
     encontrado = False
-    if len(estudiantes>0):
+    if len(estudiantes)>0:
         nombre_buscar = input('Ingrese el nombre del estudiante que desee buscar: ')
         for busqueda in estudiantes:
             if busqueda.nombre() == nombre_buscar:
