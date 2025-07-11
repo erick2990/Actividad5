@@ -26,6 +26,7 @@ def registrar_estudiante():
         nota_final = int(input('Ingrese la nota del estudiante: '))
         estudiante_tmp = estudiante(nombre, carne, carrera, nota_final)
         estudiantes.append(estudiante_tmp) #se añade a la lista
+        print('Añadido con exito!!!')
 
 
 def mostrar_estudiante():
