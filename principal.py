@@ -1,3 +1,5 @@
+estudiantes = []
+
 class estudiante:
 
     def __init__(self, nombre, carne, carrera, nota_final):
@@ -6,12 +8,46 @@ class estudiante:
         self.carrera = carrera
         self.nota_fin = nota_final
 
+    def presentar_estudiante(self):
+        print(f'Nombre: {self.nombre} carné: {self.carne} carrera: {self.carrera} nota Final: {self.nota_fin}')
 
+def registrar_estudiante():
+        nombre = input('Ingrese el nombre del estudiante: ')
+        carne = int(input('Ingrese el carné del estudiante: '))
+        carrera = input('Ingrese la carrera del estudiante: ')
+        nota_final = int(input('Ingrese la nota del estudiante: '))
+        estudiante_tmp = estudiante(nombre, carne, carrera, nota_final)
+        estudiantes.append(estudiante_tmp) #se añade a la lista
+
+
+def mostrar_estudiante():
+    if len(estudiantes) > 0:
+        for tmp in estudiantes:
+            tmp.presentar_estudiante()
+    else:
+        print('No hay estudiantes registrados aún...')
 
 
 fin_menu = True
 
 while fin_menu:
-    print('\r\t\r\t===Bienvenido usuario:==')
-    print('1. Registrar un nuevo estudiante\r\n2. Mostrar lista de estudiantes\r\n3.Buscar estudiante por carné')
-    print('4. Calcular promedio de notas')
+    try:
+        print('\r\t\r\t===Bienvenido usuario:==')
+        print('1. Registrar un nuevo estudiante\r\n2. Mostrar lista de estudiantes\r\n3.Buscar estudiante por carné')
+        print('4. Calcular promedio de notas\r\n0.Salir')
+        op = int(input('Seleccione una opcion: '))
+        match op:
+            case 0:
+                print('Adios gracias por usar el sistema')
+                fin_menu = False
+            case 1:
+                registrar_estudiante()
+            case 2:
+                mostrar_estudiante()
+            case 3:
+            case 4:
+            case _:
+
+    except ValueError:
+        print('Error dato invalido por favor vuelva a intentarlo')
+
