@@ -11,6 +11,10 @@ class estudiante:
     def presentar_estudiante(self):
         print(f'Nombre: {self.nombre} carné: {self.carne} carrera: {self.carrera} nota Final: {self.nota_fin}')
 
+    def nota_est(self):
+        return self.nota_fin
+
+
 def registrar_estudiante():
         nombre = input('Ingrese el nombre del estudiante: ')
         carne = int(input('Ingrese el carné del estudiante: '))
@@ -26,6 +30,17 @@ def mostrar_estudiante():
             tmp.presentar_estudiante()
     else:
         print('No hay estudiantes registrados aún...')
+
+def calculo_promedio():
+    prom =0
+    if len(estudiantes)>0:
+        print('Calculando el promedio general de estudiantes: ')
+        for nota in estudiantes:
+            prom = prom + nota.nota_est()
+
+        print(f'El promedio general de todos lo estudiantes es: {prom}')
+    else:
+        print('No hay estudiantes registrados aún')
 
 
 fin_menu = True
@@ -45,8 +60,11 @@ while fin_menu:
             case 2:
                 mostrar_estudiante()
             case 3:
+
             case 4:
+
             case _:
+                print('Error presiono una tecla incorrecta')
 
     except ValueError:
         print('Error dato invalido por favor vuelva a intentarlo')
