@@ -82,8 +82,7 @@ while fin_menu:
             case 2:
                 mostrar_estudiante()
             case 3:
-                print()
-
+                buscar_estudiante()
             case 4:
                 calculo_prom()
             case _:
