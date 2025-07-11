@@ -1,3 +1,5 @@
+from gtweak.utils import execute_subprocess
+
 estudiantes = []
 
 class estudiante:
@@ -13,6 +15,8 @@ class estudiante:
 
     def nota_est(self):
         return self.nota_fin
+    def nombre(self):
+        return self.nombre()
 
 
 def registrar_estudiante():
@@ -31,7 +35,7 @@ def mostrar_estudiante():
     else:
         print('No hay estudiantes registrados aún...')
 
-def calculo_promedio():
+def calculo_prom():
     prom =0
     if len(estudiantes)>0:
         print('Calculando el promedio general de estudiantes: ')
@@ -39,6 +43,24 @@ def calculo_promedio():
             prom = prom + nota.nota_est()
 
         print(f'El promedio general de todos lo estudiantes es: {prom}')
+    else:
+        print('No hay estudiantes registrados aún')
+
+def buscar_estudiante():
+    encontrado = False
+    if len(estudiantes>0):
+        nombre_buscar = input('Ingrese el nombre del estudiante que desee buscar: ')
+        for busqueda in estudiantes:
+            if busqueda.nombre() == nombre_buscar:
+                print('El estudiante que usted busca esta en la lisa')
+                encontrado= True
+                break
+
+        if encontrado:
+            print('El estudiante se encontro exitosamente')
+        else:
+            print('El estudiante no se encuentra en la lista')
+
     else:
         print('No hay estudiantes registrados aún')
 
@@ -60,9 +82,10 @@ while fin_menu:
             case 2:
                 mostrar_estudiante()
             case 3:
+                print()
 
             case 4:
-
+                calculo_prom()
             case _:
                 print('Error presiono una tecla incorrecta')
 
